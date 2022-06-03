@@ -1,14 +1,16 @@
-#név;első;utolsó;súly;magasság
-# 0    1    2     3      4
-#Jim Abbott;1989-04-08;1999-07-21;200;75
+# https://infojegyzet.hu/vizsgafeladatok/okj-programozas/szoftverfejleszto-200204/
+'''balkezesek.csv
+név;első;utolsó;súly;magasság
+Jim Abbott;1989-04-08;1999-07-21;200;75
+'''
 class Basseball:
     def __init__( self, row ):
-        r             = row.strip().split(';')
-        self.név      =      r[0]
-        self.első     =      r[1]
-        self.utolsó   =      r[2]
-        self.súly     = int( r[3] )
-        self.magasság = int( r[4] )
+        név, első, utolsó, súly, magasság = row.strip().split(';')
+        self.név      =     név
+        self.első     =     első
+        self.utolsó   =     utolsó
+        self.súly     = int(súly)
+        self.magasság = int(magasság)
 
 with open( 'balkezesek.csv', 'r', encoding='latin2' ) as forras:
     forras.readline()
@@ -27,7 +29,7 @@ while True:
     else:
         print('Hibás adat!',end='')
 
-sulyok = [sor.súly for sor in lista if sor.első[:4] <=str(evszam) <= sor.utolsó[:4]]
+sulyok = [sor.súly for sor in lista if sor.első[:4] <= str(evszam) <= sor.utolsó[:4]]
 atlag = sum(sulyok)/ len(sulyok)
 
 print(f"6. feladat: {atlag:.2f} font")
