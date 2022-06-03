@@ -1,10 +1,12 @@
-#név;első;utolsó;súly;magasság
-# 0    1    2     3      4
-#Jim Abbott;1989-04-08;1999-07-21;200;75
+# https://infojegyzet.hu/vizsgafeladatok/okj-programozas/szoftverfejleszto-200204/
+'''balkezesek.csv
+név;első;utolsó;súly;magasság
+Jim Abbott;1989-04-08;1999-07-21;200;75
+'''
 
-with open('balkezesek.csv', 'r', encoding='latin2') as forras:
-    forras.readline()
-    matrix = [sor.strip().split(';') for sor in forras ]
+with open('balkezesek.csv', 'r', encoding='latin2') as fr:
+    elsosor = fr.readline()
+    matrix = [sor.strip().split(';') for sor in fr ]
     
 print(f"3.Feladat: {len(matrix)}")
 
@@ -21,7 +23,6 @@ else:
         evszam = int(input('Hibás adat! Kérek egy 1990 és 1999 közötti évszámot:'))
         if 1990<=evszam<=1999:
             break
-sulyok = [int(sor[3]) for sor in matrix if sor[1][:4] <=str(evszam)<=
-          sor[2][:4]]
+sulyok = [int(sor[3]) for sor in matrix if sor[1][:4] <= str(evszam) <= sor[2][:4]]
 atlag = sum(sulyok)/ len(sulyok)
 print(f"6.Feladat: {atlag:.2f} font")
