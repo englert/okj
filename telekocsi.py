@@ -2,16 +2,15 @@
 # 1. olvassa be és tárolja az autok.csv fájl tartalmát
 # autok.csv
 #Indulás;Cél;Rendszám;Telefonszám;Féröhely
-#  0      1     2        3          4
 #Eger;Salgótarján;PQA-209;30/771-8574;5
 class Autok:
     def __init__(self, row):
-        r    = row.strip().split(';')
-        self.indulás     =     r[0]
-        self.cél         =     r[1]
-        self.rendszám    =     r[2]
-        self.telefonszám =     r[3] 
-        self.féröhely    = int(r[4]) 
+        indulás, cél, rendszám, telefonszám, féröhely = row.strip().split(';')
+        self.indulás     =     indulás
+        self.cél         =     cél
+        self.rendszám    =    rendszám
+        self.telefonszám =    telefonszám
+        self.féröhely    = int(féröhely) 
         
 with open( 'autok.csv', 'r', encoding='latin2') as f:
     autok_fejléc = f.readline()
@@ -45,16 +44,15 @@ print( f'   A  legtöbb férőhelyet ({csökkenő[0][1]}-et) a {csökkenő[0][0]
 #B34019;Brassó;Gyula;3
 class Igenyek:
     def __init__(self, row):
-        r = row.strip().split(';')
-        self.azonosító =      r[0]
-        self.indulás   =      r[1]
-        self.cél       =      r[2]
-        self.személyek = int( r[3] )
+        azonosító, indulás, cél, személyek = row.strip().split(';')
+        self.azonosító = azonosító
+        self.indulás   = indulás
+        self.cél       = cél
+        self.személyek = int(személyek)
        
 with open( 'igenyek.csv', 'r', encoding='latin2') as f:
     igenyek_fejléc = f.readline()
     igenyek = [ Igenyek( sor ) for sor in f ] 
-
 
 output = open( 'utasuzenetek.txt', 'w') 
 print( f'5. feladat')
