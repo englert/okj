@@ -1,6 +1,6 @@
 # fuvar.csv:
 #taxi_id;indulas;             idotartam; tavolsag; viteldij; borravalo; fizetes_modja
-#   0        1                    2         3         4        5           6
+#  0        1                    2         3         4        5           6
 #5240   ;2016-12-15 23:45:00;    900;      2,5;    10,75;    2,45;       bankkártya
 
 class Fuvar:
